@@ -31,6 +31,12 @@ for(let i = 1; i <= 10; i++){
 }
 
 console.log("\n------------Task6-------------\n");
+let num = Math.floor (Math.random() * ( 10 -1 + 1 ) + 1)
+let factorial = 1;  
+for (let i = num; i >= 1; i--) {
+    factorial *= i; 
+}
+console.log (`${num} != ${factorial}`);
 
 
 
