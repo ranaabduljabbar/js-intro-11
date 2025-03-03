@@ -1,0 +1,43 @@
+const numbers = [-7, -2, 0, -2, 0, 5, 5, 10, 100, 0];
+// Count how many positive numbers you have in the array -> 4
+
+let positiveCount = 0
+for(const number of numbers){
+    if (number> 0)
+        positiveCount++
+}
+console.log(positiveCount)
+
+//Task 2 
+
+let negativeCount = 0 
+for (const number of numbers){
+    if(number< 0) negativeCount++
+}
+console.log(count)
+
+
+//Task 3
+
+/*let countEven = 0;
+for(const number of numbers) {
+  if (number % 2 === 0) {
+    countEven++;
+  }
+}
+
+console.log(countEven);
+*/
+
+//Task 4 
+let  countOdd =0 
+for(const num of numbers){
+    if(num > 0 && num %2 !== 0){
+        count++
+    }
+}
+console.log(countOdd)
+
+
+//Task 5
+
