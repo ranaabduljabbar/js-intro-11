@@ -59,10 +59,7 @@ console.log(`The random number is ${randomNumber} and it took ${i} i /s to gener
 
 console.log("\n------------Task8-------------\n");
 
-const countries =['Germany', 'Argentina', 'Ukraine', 'Romania']
-
-console.log(countries)
-console.log([... countries].sort())
+const number =[consolez]
 
 
 console.log("\n------------Task9-------------\n");

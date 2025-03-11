@@ -19,3 +19,23 @@ for(let i = 0; i < numbers.length; i++) { // 0, 1, 2, 3, 4, 5
 }
 
 console.log(countE);
+
+// Find the first city that has the odd length  -> Chicago
+const cities = ['Berlin', 'Rome', 'Chicago', 'Kyiv', 'Istanbul', 'Tokyo'];
+
+const findOddLengthCity; 
+for (let city of cities){
+    if(city .length %2 === 0){
+        findOddLengthCity = city 
+        break;
+    }
+}
+console.log(findOddLengthCity)
+
+
+const cities5Plus= []
+
+for(const city of cities){
+    if(city. length >5) cities5Plus.push(city)
+}
+console.log(city)

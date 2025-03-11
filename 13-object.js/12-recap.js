@@ -1,0 +1,4 @@
+const computer ={
+    os: 'MacOs'
+    
+}
