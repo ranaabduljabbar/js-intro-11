@@ -205,6 +205,11 @@ countPos([-23, -4, 0, 2, 5, 90, 123])
 countPos([0, -1, -2, -3])
 */
 
+const countPos = (arr) =>{
+  return arr.filter(num => num > 0).length
+}
+
+console.log(countPos([-45, 0, 0, 34, 5, 67]))
 /*
 Find Even Numbers
 Write a function named countPos() which takes an array of numbers as an argument and returns how many elements are positive when invoked.
@@ -217,6 +222,21 @@ getEvens(17, 5)
 getEvens(4, 4) 
 getEvens(3, 3)
 */
+function getEvens(start, end) {
+  if (start > end) [start, end] = [end, start];
+
+  const evens = [];
+  for (let i = start; i <= end; i++) {
+      if (i % 2 === 0) evens.push(i);
+  }
+
+  return evens;
+}
+
+console.log(getEvens(2, 7)) 
+console.log(getEvens(17, 5)) 
+console.log(getEvens(4, 4)) 
+console.log(getEvens(3, 3))
 
 
 /*
@@ -230,7 +250,20 @@ getMultipleOf5(5, 5)
 getMultipleOf5(2, 4)
 
 */
-
+const getMultipleOf5 = (num1, num2)=>{
+   let min = Math.min(num1, num2)
+   let max = Math.max(num1, num2)
+   let getMultipleOf5= []
+   for(let i= min; i <= max ;i++){
+    if(i % 5 === 0) getMultipleOf5.push(i)
+   }
+  return num2 > num1 ? getMultipleOf5:
+  getMultipleOf5.reverse()
+}
+console.log(getMultipleOf5(3, 17))
+console.log(getMultipleOf5(23, 5))
+console.log( getMultipleOf5(5, 5))
+console.log(getMultipleOf5(2, 4))
 /*
 Count Negative Numbers
 Write a function named countNeg() which takes an array of numbers as an argument and returns how many elements are negative when invoked.
@@ -265,3 +298,29 @@ const firstLastWord = (word) => {
     if (words.length === 0) return "";   
     return words[0] + words[words.length - 1]; 
 };
+
+const countConsonants = (word) => 
+  [...word].filter(char => /[b-df-hj-np-tv-z]/i.test(char)).length;
+
+console.log(countConsonants("Hello"));              
+console.log(countConsonants("Hello World"));        
+console.log(countConsonants("JavaScript is fun"));
+
+const fizzBuzz =(num1, num2) =>{
+  let min=Math.min(num1, num2)
+  let max = Math.max(num1, num2)
+  let results =[]
+  for(let i= min; i<= max; i++){
+      if(i % 3 === 0 && i % 5 === 0)results.push(fizzBuzz)
+      else if(i %3 === 0)results.push ("fizz")
+      else if(i % 5 === 0) results.push("Buzz")
+      else results.push(i)
+  }
+  return results.join('|')
+}
+
+
+console.log(fizzBuzz(13, 18))
+console.log(fizzBuzz(12, 5)) 
+console.log(fizzBuzz(5, 5)) 
+console.log(fizzBuzz(9, 6))
