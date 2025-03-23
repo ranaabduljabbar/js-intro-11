@@ -196,6 +196,42 @@ console.log(swapFirstLastWord("") )
 console.log(swapFirstLastWord(" ") )
 console.log(swapFirstLastWord("Hello")) 
 console.log(swapFirstLastWord("Hello"))
+
+/*
+Write a function named noVowel() which takes a string argument and returns a new string with all vowels removed from the original string.
+Examples:
+noVowel("TechGlobal") -> "TchGlbl" 
+noVowel("AEOxyz") -> "xyz" 
+noVowel("Javascript") -> "Jvscrpt" 
+noVowel("") -> ""
+noVowel("125$") -> "125$"
+
+*/
+
+
+
+
+
+/*
+Count Words
+Write a function named countWords() which takes a string argument and returns the total count of words in the given string when invoked.
+NOTE: Be careful about the extra whitespaces before and after the string.
+ Examples:
+countWords(" Javascript is fun ") countWords("Cypress is an UI automation tool. ") countWords("1 2 3 4")
+*/
+
+
+
+const countConsonants = (word) => 
+  [...word].filter(char => /[b-df-hj-np-tv-z]/i.test(char)).length;
+
+console.log(countConsonants("Hello"));              
+console.log(countConsonants("Hello World"));        
+console.log(countConsonants("JavaScript is fun"));
+
+
+
+
 /*
 Count Positive Numbers
 Write a function named countPos() which takes an array of numbers as an argument and returns how many elements are positive when invoked.
@@ -210,6 +246,7 @@ const countPos = (arr) =>{
 }
 
 console.log(countPos([-45, 0, 0, 34, 5, 67]))
+
 /*
 Find Even Numbers
 Write a function named countPos() which takes an array of numbers as an argument and returns how many elements are positive when invoked.
@@ -250,16 +287,17 @@ getMultipleOf5(5, 5)
 getMultipleOf5(2, 4)
 
 */
-const getMultipleOf5 = (num1, num2)=>{
-   let min = Math.min(num1, num2)
-   let max = Math.max(num1, num2)
-   let getMultipleOf5= []
-   for(let i= min; i <= max ;i++){
-    if(i % 5 === 0) getMultipleOf5.push(i)
-   }
-  return num2 > num1 ? getMultipleOf5:
-  getMultipleOf5.reverse()
+const getMultipleOf5 = (num1, num2) => {
+  let min = Math.min(num1, num2)
+  let max = Math.max(num1, num2)
+  let getMultipleOf5 =[]
+  for (let i = min ; i <= max ; i++){
+    if( i % 5 === 0) getMultipleOf5.push(i)
+  }
+return num2 > num1 ? getMultipleOf5 :
+getMultipleOf5 .reverse()
 }
+
 console.log(getMultipleOf5(3, 17))
 console.log(getMultipleOf5(23, 5))
 console.log( getMultipleOf5(5, 5))
@@ -274,53 +312,494 @@ countNeg([-45, 0, 0, 34, 5, 67])
 
 */
 
+const countNeg =(arr) => arr.filter(ele => ele < 0).length
+console.log(countNeg([-45, 0, 0, 34, 5, 67]))
+console.log(countNeg([-23, -4, 0, 2, 5, 90, 123])) 
+console.log(countNeg([0, -1, -2, -3]))
+
+
+
 /*
 Count A
 Write a function named countA() which takes a string argument and returns how many A or a there are in the given string when invoked.
 NOTE: Ignore case sensitivity.
 Examples:
-countA("TechGlobal is a QA bootcamp") countA("QA stands for Quality Assurance") countA("Cypress")
+countA("TechGlobal is a QA bootcamp") 
+countA("QA stands for Quality Assurance") 
+countA("Cypress")
 
 */
+ const countA =(string)=> string.trim().split('').reduces((acc, curr) => curr.toLowerCase().includes('a') ? acc +1 : acc ,0)
+ console.log(countA("TechGlobal is a QA bootcamp"))
+ console.log(countA("QA stands for Quality Assurance"))
+ console.log(countA("Cypress"))
+ /*
+
+Count Words
+-> 4 -> 5 -> 0
+Write a function named countWords() which takes a string argument and returns the total count of words in the given string when invoked.
+countWords(" Javascript is fun ") 
+countWords("Cypress is an UI automation tool. ") 
+countWords("1 2 3 4")
+
+ */
+
+const countWords = (string) => string.trim().split(' ').length
+
+console.log(countWords(" Javascript is fun "))
+console.log(countWords("Cypress is an UI automation tool. "))
+console.log(countWords("1 2 3 4"))
+
+/*
+
+Write a function named as factorial() which takes a number as an argument and returns the factorial of the number when invoked.
+NOTE: Mathematically, the factorial of a non-negative integer n is defined as:
+n! = n × (n-1) × (n-2) × ... × 2 × 1
+Assume you will not be given a negative number.
+Examples:
+factorial(5) 
+factorial(4) 
+factorial(0) 
+factorial(1)
+
+*/
+
+function factorial(n){
+  let result = 1
+  for(let i = 1 ; i <= n ; i++){
+    result *= i
+  }
+  return result 
+}
+console.log(factorial(5))
+console.log(factorial(4)) 
+console.log(factorial(0))
+console.log(factorial(1))
+
+
+/*
+Write a function named as count3OrLess() which takes a string word as an argument and returns the count of the words that has 3 characters or less when invoked.
+Examples:
+count3OrLess("Hello") 
+count3OrLess("Hi John") 
+count3OrLess("JavaScript is fun") 
+count3OrLess("My name is John Doe") 
+ count3OrLess("")
+*/
+ const count3OrLess = (word) => word.split(/\s+/).filter(word => word.length >0 && word.length <= 3).length
+
+ console.log(count3OrLess("Hello")) 
+ console.log(count3OrLess("Hi John")) 
+ console.log(count3OrLess("JavaScript is fun")) 
+ console.log(count3OrLess("My name is John Doe")) 
+ console.log(count3OrLess(""))
+
+
+/*
+Remove Extra Spaces
+Write a function named as removeExtraSpaces() which takes a string word as an argument and returns the string back with all extra spaces removed when invoked.
+Examples:
+removeExtraSpaces("Hello") 
+removeExtraSpaces("        Hello World ")
+removeExtraSpaces("         javaScript is         fun  ")
+*/
+
+const removeExtraSpaces= (string) => string.trim()
+
+console.log(removeExtraSpaces("Hello"))
+console.log(removeExtraSpaces("        Hello World "))
+console.log(removeExtraSpaces("         javaScript is         fun  "))
 
 
 
 /*
-Count Words
-Write a function named countWords() which takes a string argument and returns the total count of words in the given string when invoked.
-NOTE: Be careful about the extra whitespaces before and after the string.
- Examples:
-countWords(" Javascript is fun ") countWords("Cypress is an UI automation tool. ") countWords("1 2 3 4")
+Write a function named middleInt() which takes three number arguments and return the middle number.
+middleInt(1, 2, 2) 
+middleInt(5, 5, 8) 
+middleInt(5, 3, 5) 
+middleInt(1, 1, 1) 
+middleInt(-1, 25, 10)
 */
 
-const firstLastWord = (word) => {
-    const words = word.trim().split(" "); 
-    if (words.length === 0) return "";   
-    return words[0] + words[words.length - 1]; 
-};
+const middleInt =(num1, num2, num3) => [num1, num2, num3].sort((a,b)=> a-b)[1]
 
-const countConsonants = (word) => 
-  [...word].filter(char => /[b-df-hj-np-tv-z]/i.test(char)).length;
 
-console.log(countConsonants("Hello"));              
-console.log(countConsonants("Hello World"));        
-console.log(countConsonants("JavaScript is fun"));
+console.log(middleInt(1, 2, 2)) 
+console.log(middleInt(5, 5, 8))
+console.log(middleInt(5, 3, 5))
+console.log(middleInt(1, 1, 1)) 
+console.log(middleInt(-1, 25, 10))
 
-const fizzBuzz =(num1, num2) =>{
-  let min=Math.min(num1, num2)
-  let max = Math.max(num1, num2)
-  let results =[]
-  for(let i= min; i<= max; i++){
-      if(i % 3 === 0 && i % 5 === 0)results.push(fizzBuzz)
-      else if(i %3 === 0)results.push ("fizz")
-      else if(i % 5 === 0) results.push("Buzz")
-      else results.push(i)
+
+
+
+/*
+First Duplicate Element
+Write a function named as firstDuplicate() which takes an array argument and returns the first duplicated number in the array when invoked.
+NOTE: Make your code dynamic that works for any array and return -1 if there are no duplicates in the array. For two elements to be considered as duplicated, value and data types of the elements must be same.
+Examples:
+firstDuplicate([ 3, 7, 10, 0, 3, 10 ]) 
+firstDuplicate([ 5, 7, 7, 0, 5, 10 ]) 
+firstDuplicate([ 5, '5', 3, 7, 4 ]) 
+firstDuplicate([ 123, 'abc', '123', 3, 'abc' ])
+firstDuplicate([ 1, 2, 3])
+firstDuplicate([ 'foo', 'abc', '123', 'bar’ ])
+
+*/
+
+const firstDuplicate =(arr) =>{
+  for(let i = 0 ; i < arr.length; i++){
+    if(arr.includes(arr[i], i +1)) return arr [i]
   }
-  return results.join('|')
+  return -1
 }
+console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ])) 
+console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]))
+console.log(firstDuplicate([ 5, '5', 3, 7, 4 ]))
+console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]))
+console.log(firstDuplicate([ 1, 2, 3]))
+
+
+/*
+Find All Duplicate Elements
+Write a function named as getDuplicates() which takes an array argument and returns all the duplicated elements in the array when invoked.
+NOTE: Make your code dynamic that works for any array and return empty array if there are no duplicates in the array. For two elements to be considered as duplicated, value and data types of the elements must be same.
+
+getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]) 
+getDuplicates([ 1, 2, 5, 0, 7 ])
+getDuplicates(['A', 'foo', '12’ , 12, 'bar', 'a', 'a', 'foo' ])
+getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ])
+
+*/
+
+const getDuplicates =(arr) =>{
+  let Duplicates =[]
+  for(let i = 0 ; i < arr.length;i++){
+    if(arr.includes(arr[i],i +1) && !Duplicates.includes(arr[i]))
+      Duplicates.push(arr[i])
+  }
+ return Duplicates
+}
+
+console.log(getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ])) 
+console.log(getDuplicates([ 1, 2, 5, 0, 7 ]))
+console.log(getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]))
+
+
+/*
+Write a function named as reverseStringWords() which takes a string as an argument and returns string back with each word separately reversed when invoked.
+NOTE: Make your code dynamic that works for any string. Make sure you consider extra spaces before and after words in the given string.
+Examples:
+reverseStringWords("Hello World") 
+reverseStringWords("I like JavaScript") 
+reverseStringWords("Hello") 
+reverseStringWords("") 
+reverseStringWords(" ")
+
+*/
+
+const reverseStringWords = (string) => string.trim().split(/\s+/).map(str => str.split("").reverse().join("")).join()
+
+console.log(reverseStringWords("Hello World")) 
+console.log(reverseStringWords("I like JavaScript")) 
+console.log(reverseStringWords("Hello")) 
+console.log(reverseStringWords("")) 
+console.log(reverseStringWords(" "))
+
+
+
+/*
+Write a function named as countConsonants() which takes a string word as an argument and returns the count of the consonant letters when invoked.
+NOTE: A letter that is not vowel is considered as a consonant letter.
+Examples:
+countConsonants("Hello") 
+countConsonants("Hello World") 
+countConsonants("JavaScript is fun")
+*/
+
+const countConsonants = string => [...string].filter(char => /[bcdfghjklmnpqrstvwxyz]/i.test(char)).length;
+console.log(countConsonants("Hello"))
+console.log(countConsonants("Hello World"))
+console.log(countConsonants("JavaScript is fun"))
+
+
+
+
+
+
+
+/*
+Write a function named as countMultipleWords() which takes an array as an argument and returns the count of the elements that has multiple words when invoked.
+NOTE: Be careful about the extra whitespaces before and after the array element.
+countMultipleWords([ "foo", "", " ", "foo bar", " foo" ]
+countMultipleWords([ "foo", "bar", "foobar", "     foobar "])
+countMultipleWords([ "f o o", "b a r", "foo bar", " foo bar " ])
+countMultipleWords([ ])
+
+
+*/
+
+const countMultipleWords = arr => arr.filter(arr => arr.trim().split(/\s+/).length > 1).length
+
+console.log(countMultipleWords([ "foo", "", " ", "foo bar", " foo" ]))
+console.log(countMultipleWords([ "foo", "bar", "foobar", "     foobar "]))
+console.log(countMultipleWords([ "f o o", "b a r", "foo bar", " foo bar " ]))
+console.log(countMultipleWords([ ]))
+
+/*
+FizzBuzz
+Write a function named as fizzBuzz() which takes 2 number arguments and returns a string composed with below requirements when invoked.
+• You need to find all the numbers within the range of given 2 numbers (both inclusive) and store them in a string from smallest to greatest number with a ' | ' separator for each number.
+• You will need to convert numbers divisible by 3 to 'Fizz'
+• You will need to convert numbers divisible by 5 to 'Buzz'
+• You will need to convert numbers divisible by both 3 and 5 to 'FizzBuzz’
+• The rest will stay the same.
+
+*/
+
+const fizzBuzz =(num1, num2)=>{
+let min = Math.min(num1, num2)
+let max = Math.max(num1, num2)
+let result =[]
+for(let i= min ; i <= max; i++){
+  if(i % 3 === 0 && i %5 ===0) result.push('fizzBuzz')
+    else if(i %3 ===0) result.push('Fizz')
+    else if(i %5 ===0) result.push('Buzz')
+  else result.push(i)
+}
+return result.join('|')
+}
+
 
 
 console.log(fizzBuzz(13, 18))
 console.log(fizzBuzz(12, 5)) 
 console.log(fizzBuzz(5, 5)) 
 console.log(fizzBuzz(9, 6))
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Write a function named as isPalindrome() which takes a string word as an argument and returns true if the word is palindrome or returns false otherwise when invoked.
+NOTE: Palindrome: It is a word that is read the same backward as forward
+Examples: kayak, civic, madam
+Examples:
+isPalindrome("Hello") -> false 
+isPalindrome("Kayak") -> true 
+isPalindrome("civic") -> true 
+isPalindrome("abba") -> true 
+isPalindrome("ab a") -> false 
+isPalindrome("123454321") -> true 
+isPalindrome("A") -> true i
+sPalindrome("") -> true
+*/
+
+const isPalindrome = (str)=>{
+  let strArr1 = str.trim().toLowerCase().split('')
+  let strArr2 =[...strArr1].reverse()
+  return strArr1.join('') === strArr2.join('')
+}
+
+console.log(isPalindrome("Hello")) //-> false 
+console.log(isPalindrome("Kayak")) //-> true 
+console.log(isPalindrome("civic")) // -> true 
+console.log(isPalindrome("abba")) // -> true 
+console.log(isPalindrome("ab a")) // -> false 
+console.log(isPalindrome("123454321")) // -> true 
+console.log(isPalindrome("A")) // -> true
+console.log(isPalindrome(""))// -> true
+
+
+
+
+/*
+Prime Number
+Write a function named as isPrime() which takes a number as an argument and returns true if the number is prime or returns false otherwise when invoked.
+NOTE: Mathematically, Prime number is a number that can be divided only by itself and 1. It cannot be divided by any other number. The smallest prime number is 2 and 2 is the only even prime number.
+Examples: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31...
+NOTE: The smallest prime number is 2 and there is no negative prime numbers.
+Examples:
+isPrime(5) 
+isPrime(2) 
+isPrime(29) 
+isPrime(-5) -> false 
+isPrime(0) -> false 
+isPrime(1) -> false
+*/
+
+const isPrime =(num)=>{
+  if(num< 2) return false
+  for(let i = 2; i < num; i++){
+    if(num % i === 0){
+      return false
+    }
+  }
+  return true
+}
+
+console.log(isPrime(5)) 
+console.log(isPrime(2)) 
+console.log(isPrime(29)) 
+console.log(isPrime(-5)) 
+console.log(isPrime(0)) 
+console.log(isPrime(1)) 
+
+
+/*
+Write a function named add() which takes two array of numbers as argument and returns a new array with sum of given arrays elements.
+NOTE: Be careful about the array sizes as they could be different
+Examples:
+add([3, 0, 0, 7, 5, 10], [6, 3, 2]) 
+add([10,3,6,3,2],[6,8,3,0,0,7,5,10,34])
+ add([-5, 6, -3, 11], [5, -6, 3, -11])
+ */
+ const add = (arr1, arr2) => arr1.concat(arr2.slice(arr1.length)).reduce((acc,_,i) =>{
+ acc.push(arr1[i] ||0) +(arr2[i] || 0)
+ return acc
+ },[])
+
+
+console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2])) 
+console.log(add([10,3,6,3,2],[6,8,3,0,0,7,5,10,34]))
+ console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]))
+
+ /*
+ Write a function named noA() which takes an array of strings as argument and will return a new array with all elements starting with "A" or "a" replaced with "###".
+Examples:
+noA(["javascript", "hello", "123", "xyz"]) 
+noA(["apple", "123", "ABC", "javascript"])
+noA(["apple", "abc", "ABC", "Alex", "A"])
+*/
+const noA=(arr) => arr.map(str => /[aA]/.test((str[0]))? '###' : str)
+
+
+console.log(noA(["javascript", "hello", "123", "xyz"])) 
+console.log(noA(["apple", "123", "ABC", "javascript"]))
+console.log(noA(["apple", "abc", "ABC", "Alex", "A"]))
+
+/*
+Write a function named no3and5() which takes an array of integer numbers as argument and will return a new array with elements replaced by conditions below.
+If element can be divided by 5, replace it with 99
+If element can be divided by 3, replace it with 100
+If element can be divided by both 3 and 5, replace it with 101
+Examples:
+no3and5([7, 4, 11, 23, 17]) 
+no3and5([3, 4, 5, 6]) 
+no3and5([10, 11, 12, 13, 14, 15])
+*/
+ const no3and5 =(arr)=>{
+return arr.map(num =>{
+  if(num % 15 ===0) return 101
+  if(num % 5 ===0) return 99
+  if(num % 3 ===0) return 100
+  return num
+})
+ }
+
+
+console.log(no3and5([7, 4, 11, 23, 17])) 
+console.log(no3and5([3, 4, 5, 6]))
+console.log(no3and5([10, 11, 12, 13, 14, 15]))
+
+/*
+No Elements Equals 13
+Write a function named no13() which takes an array of numbers as argument and return a new array with all 13s replaced with 0s.
+Examples:
+no13([1, 2, 3 ,4])
+ no13([13, 2, 3])
+no13([13, 13, 13 , 13, 13]) 
+no13([])
+*/
+
+const no13 = (arr)=> arr.map(ele => ele === 13 ? 0 :ele)
+console.log(no13([1, 2, 3 ,4]))
+console.log(no13([13, 2, 3]))
+console.log(no13([13, 13, 13 , 13, 13]))
+console.log(no13([]))
+
+
+/*
+Remove Duplicates
+Write a function named removeDuplicates() which takes an array argument and returns a new array with all the duplicates removed.
+removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60])
+removeDuplicates([1, 2, 5, 2, 3])
+removeDuplicates([0, -1, -2, -2, -1])
+removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])
+*/
+const removeDuplicates =(arr)=> [...new Set(arr)]
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]))
+console.log(removeDuplicates([1, 2, 5, 2, 3]))
+console.log(removeDuplicates([0, -1, -2, -2, -1]))
+console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]))
+
+/*
+No Digits
+Write a function named noDigit() which takes a string argument and returns a new string with all digits removed from the original string.
+ noDigit("")
+noDigit("Javascript") 
+noDigit("123Hello") 
+noDigit("123Hello World149") 
+noDigit("123Tech456Global149")
+*/
+
+
+
+console.log(noDigit(""))
+console.log(noDigit("Javascript"))
+console.log(noDigit("123Hello"))
+console.log(noDigit("123Hello World149"))
+console.log(noDigit("123Tech456Global149"))
+
+
+
+/*
+Sum Of Digits
+Write a function named sumOfDigits() which takes a string argument and returns sum of all digits from the original string.
+Examples:
+sumOfDigits("Javascript") 
+sumOfDigits("John’s age is 29") 
+sumOfDigits("$125.0")
+
+*/
+const sumOfDigits =(string)=>{
+  let sum =0
+  for(let char of sum){
+    if(/\d/.test(char)) sum += +char
+  }
+  return sum
+}
+
+console.log(sumOfDigits("Javascript"))
+sconsole.log(umOfDigits("John’s age is 29")) 
+console.log(sumOfDigits("$125.0"))
+
+
+
+/*
+Write a function named arrFactorial() which takes an array of numbers as argument and return the array with every number replaced with their factorials.
+Examples:
+arrFactorial([1, 2, 3 ,4]) 
+arrFactorial([0, 5]) 
+arrFactorial([5 , 0, 6]) 
+arrFactorial([])
+*/
+
+const arrFactorial=(arr) => {
+  return [...arr].filter(char=>/\d/.test(char)).join('')
+}
+
+console.log(arrFactorial([1, 2, 3, 4]));  
+console.log(arrFactorial([0, 5]));        
+console.log(arrFactorial([5, 0, 6]));     
+console.log(arrFactorial([]));   
+
