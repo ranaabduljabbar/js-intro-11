@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html long>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+</head>
+<body>
+    <script>
+    
+        let userName = prompt("Please enter your name:");
+
+        if (userName) {
+           
+            alert("Welcome, " + userName + "!");
+            
+           
+            let userWantsToContinue = confirm("Do you want to continue?");
+            
+            if (userWantsToContinue) {
+                alert("You chose to continue.");
+            } else {
+                alert("You canceled the action.");
+            }
+
+            
+            console.log("Browser window width (innerWidth): " + window.innerWidth);
+            console.log("Browser window height (innerHeight): " + window.innerHeight);
+
+            
+            console.log("The page will reload in 10 seconds...");
+            setTimeout(function() {
+                window.location.reload();
+            }, 10000); 
+        } else {
+            
+            console.error("No name entered. Exiting.");
+        }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List</title>
+</head>
+<body>
+  
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Student Names</th>
+      </tr>
+    </thead>
+    <tbody id="studentTableBody">
+      <!-- Student names will be rendered here -->
+    </tbody>
+  </table>
+  
+  <script>
+    
+    const students = ['A', 'B'];
+
+   
+    const tableBody = document.getElementById('studentTableBody');
+
+   
+    students.forEach(studentName => {
+      const row = document.createElement('tr'); 
+      const cell = document.createElement('td'); 
+      cell.textContent = studentName; 
+      row.appendChild(cell); 
+      tableBody.appendChild(row); 
+    });
+  </script>
+</body>
+</html>
