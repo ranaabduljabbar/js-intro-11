@@ -1,0 +1,129 @@
+console.log("\n------------Task1-------------\n");
+
+const calculateTotalPrice1 = (items) => {
+    const prices = { apple: 2.00, orange: 3.29, mango: 4.99, pineapple: 5.25 };
+    let total = 0;
+    for (const [fruit, qty] of Object.entries(items)) {
+        total += (prices[fruit] || 0) * qty;
+    }
+    return total;
+};
+console.log(calculateTotalPrice1({ apple: 3, mango: 1 })); 
+console.log(calculateTotalPrice1({ apple: 2, pineapple: 1, orange: 3 })); 
+console.log(calculateTotalPrice1({ apple: 0, mango: 0, orange: 0 })); 
+console.log(calculateTotalPrice1({ apple: 1, pineapple: 1, orange: 0, mango: 1 }));
+
+console.log("\n------------Task2-------------\n");
+
+const calculateTotalPrice2 = (fruitObj) => {
+    const prices = { Apple: 2.00, Pineapple: 5.25, Orange: 3.29, Mango: 4.99 };
+    let total = 0;
+    if (fruitObj.Apple) {
+        const full = Math.ceil(fruitObj.Apple / 2);
+        const half = Math.floor(fruitObj.Apple / 2);
+        total += (full * prices.Apple) + (half * prices.Apple * 0.5);
+    }
+
+    if (fruitObj.Mango) {
+        const free = Math.floor(fruitObj.Mango / 4);
+        const paid = fruitObj.Mango - free;
+        total += paid * prices.Mango;
+    }
+
+    total += (fruitObj.Orange || 0) * prices.Orange;
+    total += (fruitObj.Pineapple || 0) * prices.Pineapple;
+
+    return total ? total.toFixed(2) : '0';
+};
+console.log(calculateTotalPrice2({ Apple: 3, Mango: 5 }));                 
+console.log(calculateTotalPrice2({ Apple: 4, Mango: 8, Orange: 3 }));        
+console.log(calculateTotalPrice2({ Apple: 0, Pineapple: 0, Orange: 0 }));   
+console.log(calculateTotalPrice2({ Apple: 4, Pineapple: 1, Orange: 1, Mango: 3 }))
+
+
+console.log("\n------------Task3-------------\n");
+const nthWord = (str, n) => {
+    const words = str.split(' '); 
+    for (let i = 0; i < words.length; i++) {
+        if (i + 1 === n) return words[i]; 
+    }
+    return ''; 
+};
+console.log(nthWord("I like programming languages", 2));  
+console.log(nthWord("QA stands for Quality Assurance", 4)); 
+console.log(nthWord("Hello World", 3));  
+console.log(nthWord("Javascript", 1)); 
+console.log(nthWord("", 1));
+
+console.log("\n------------Task4-------------\n");
+const isArmstrong = (num) => {
+    const numStr = num.toString();  
+    const numDigits = numStr.length;  
+    let sum = 0;
+
+    for (let i = 0; i < numDigits; i++) {
+        const digit = Number(numStr[i]);  
+        sum += Math.pow(digit, numDigits);  
+    }
+
+    return sum === num;  
+};
+
+console.log(isArmstrong(153));  
+console.log(isArmstrong(123));    
+console.log(isArmstrong(1634)); 
+console.log(isArmstrong(1111)); 
+
+console.log("\n------------Task5-------------\n");
+
+const reverseNumber = (num) => {
+    let reversed = 0;
+    
+    for (let temp = num; temp > 0; temp = Math.floor(temp / 10)) {
+        reversed = reversed * 10 + temp % 10;
+    }
+
+    return reversed;
+};
+
+console.log(reverseNumber(371));  
+console.log(reverseNumber(123)); 
+console.log(reverseNumber(12));   
+console.log(reverseNumber(0));   
+console.log(reverseNumber(111))
+
+console.log("\n------------Task6-------------\n");
+const doubleOrTriple = (arr, shouldDouble) => {
+    const multiplier = shouldDouble ? 2 : 3;  
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        result.push(arr[i] * multiplier);  
+    }
+
+    return result;
+};
+console.log(doubleOrTriple([1, 5, 10], true));  
+console.log(doubleOrTriple([3, 7, 2], false));  
+console.log(doubleOrTriple([-1, -2], true));    
+console.log(doubleOrTriple([0], false));        
+console.log(doubleOrTriple([-1, 0, 1], true));
+
+console.log("\n------------Task7-------------\n");
+
+const splitString = (str, num) => {
+    if (str.length < num || str.length % num !== 0) return ""; 
+
+    let result = '';
+    for (let i = 0; i < str.length; i += num) {
+        result += (i ? ' ' : '') + str.slice(i, i + num); 
+    }
+    return result;
+};
+
+console.log(splitString("JavaScript", 5));    
+console.log(splitString("Java", 2));          
+console.log(splitString("Automation", 3));    
+console.log(splitString("Hello", 6));         
+console.log(splitString("12", 1)); 
+
