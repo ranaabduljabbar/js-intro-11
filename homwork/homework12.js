@@ -32,11 +32,7 @@ console.log(decimal2([4.35623, 8.9742]));
 
 console.log("\n------------Task04-------------\n");
 
-const myPow=(x, n)=> {
-  let r = 1;
-  while (n-- > 0) r *= x;
-  return r;
-}
+const myPow = (x, n) => (n === 0) ? 1 : x * myPow(x, n - 1);
 console.log(myPow(3, 3));    
 console.log(myPow(10, 1));  
 console.log(myPow(100, 0));  
