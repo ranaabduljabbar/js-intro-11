@@ -1,0 +1,63 @@
+console.log("\n------------Task01-------------\n");
+const toInitials=(fullName)=> {
+  const [first, last] = fullName.trim().split(" ");
+  return `${first[0].toUpperCase()}. ${last[0].toUpperCase()}.`;
+}
+console.log(toInitials("Joe Doe"));      
+console.log(toInitials("Alex Reyes")); 
+console.log(toInitials("Bruce Willis"))
+
+
+console.log("\n------------Task02-------------\n");
+const hasNumbers=(str) =>{
+  return /\d/.test(str);
+}
+console.log(hasNumbers("John is 34 years old")); 
+console.log(hasNumbers("   a   "));              
+console.log(hasNumbers("125$"));
+
+console.log("\n------------Task03-------------\n");
+const elementLength = (arr) =>{
+  return arr.map(el => el.length);
+}
+console.log(elementLength(["Hello", "World"])); 
+console.log(elementLength(["Apple", "Banana", "Orange", "Pear"])); 
+console.log(elementLength([]));
+
+console.log("\n------------Task04-------------\n");
+
+const isArraySumEvenOrOdd = (arr)=> {
+  const sum = arr.reduce((acc, num) => acc + num, 0);
+  return sum % 2 === 0 ? "even" : "odd";
+}
+console.log(isArraySumEvenOrOdd([])); 
+console.log(isArraySumEvenOrOdd([0, -1, -5])); 
+console.log(isArraySumEvenOrOdd([7, 1, 8, 1])); 
+console.log(isArraySumEvenOrOdd([0, 0])); 
+console.log(isArraySumEvenOrOdd([1, 1, 1, 1, 1]));
+
+console.log("\n------------Task05-------------\n");
+
+const reverse=(str) => {
+  return str.split("").reverse().join("");
+}
+
+console.log(reverse("Hello World"));     
+console.log(reverse("TechGlobal"));       
+console.log(reverse("Basketball is fun"));
+console.log(reverse(""));                 
+console.log(reverse("Apples 456")); 
+
+console.log("\n------------Task06-------------\n");
+
+const reverseWords=(str) => {
+  return str
+    .split(" ")
+    .map(word => word.split("").reverse().join(""))
+    .join(" ");
+}
+console.log(reverseWords("Hello World"));       
+console.log(reverseWords("TechGlobal"));        
+console.log(reverseWords("Basketball is fun")); 
+console.log(reverseWords(""));                 
+console.log(reverseWords("Apples 456"));
